@@ -279,7 +279,7 @@ def test_run_with_python_versions(installer, locker, repo, package):
     package_a = get_package("A", "1.0")
     package_b = get_package("B", "1.1")
     package_c12 = get_package("C", "1.2")
-    package_c12.python_versions = "~2.7 || ^3.6"
+    package_c12.python_versions = "~2.7 || ^3.3"
     package_c13 = get_package("C", "1.3")
     package_c13.python_versions = "~3.3"
 

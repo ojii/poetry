@@ -131,6 +131,7 @@ class PyPiRepository(Repository):
         extras=None,  # type: (Union[list, None])
     ):  # type: (...) -> Union[Package, None]
         try:
+            raise ValueError()
             index = self._packages.index(Package(name, version, version))
 
             return self._packages[index]

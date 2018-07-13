@@ -153,6 +153,8 @@ class Poetry:
         if "packages" in local_config:
             package.packages = local_config["packages"]
 
+        package.private = local_config.get("private", False)
+
         locker = Locker(poetry_file.with_suffix(".lock"), local_config)
 
         return cls(poetry_file, local_config, package, locker)
@@ -164,7 +166,7 @@ class Poetry:
         """
         try:
             validate_object(config, "poetry-schema")
-        except ValidationError:
+        except ValidationError as e:
             raise InvalidProjectFile(str(e))
 
         if strict:

@@ -77,6 +77,8 @@ class Package(object):
 
         self.develop = False
 
+        self.private = False
+
     @property
     def name(self):
         return self._name

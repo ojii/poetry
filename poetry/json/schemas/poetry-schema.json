@@ -154,6 +154,10 @@
                     }
                 }
             }
+        },
+        "private": {
+            "type": "boolean",
+            "description": "Flags the package as private"
         }
     },
     "definitions": {

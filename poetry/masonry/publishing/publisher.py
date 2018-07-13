@@ -31,6 +31,11 @@ class Publisher:
                 )
             )
         else:
+            if self._package.private:
+                self._io.writeln(
+                    "Cannot publish private packages to the default repository."
+                )
+                return
             self._io.writeln(
                 "Publishing <info>{}</info> (<comment>{}</comment>) "
                 "to <fg=cyan>PyPI</>".format(

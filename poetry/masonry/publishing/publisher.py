@@ -20,7 +20,7 @@ class Publisher:
     def files(self):
         return self._uploader.files
 
-    def publish(self, repository_name, username, password):
+    def publish(self, repository_name, username, password):  # (str, str, str) -> bool
         if repository_name:
             self._io.writeln(
                 "Publishing <info>{}</info> (<comment>{}</comment>) "
@@ -35,7 +35,7 @@ class Publisher:
                 self._io.writeln(
                     "Cannot publish private packages to the default repository."
                 )
-                return
+                return False
             self._io.writeln(
                 "Publishing <info>{}</info> (<comment>{}</comment>) "
                 "to <fg=cyan>PyPI</>".format(
@@ -93,4 +93,5 @@ class Publisher:
 
         self._uploader.auth(username, password)
 
-        return self._uploader.upload(url)
+        self._uploader.upload(url)
+        return True
